@@ -1,0 +1,10 @@
+{
+  "id": "fileclass-meta-bind",
+  "name": "Fileclass Meta Bind",
+  "version": "0.1.5",
+  "minAppVersion": "1.12.7",
+  "description": "Render Fileclass fields as Meta Bind controls with FCMB[field], with a native-style persistent multi-select prompt.",
+  "author": "humoumou",
+  "authorUrl": "https://github.com/humoumou1215",
+  "isDesktopOnly": false
+}

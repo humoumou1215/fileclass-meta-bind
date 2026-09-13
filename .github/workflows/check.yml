@@ -1,0 +1,30 @@
+name: Check
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate plugin files
+        run: |
+          node --check main.js
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
+          const versions = JSON.parse(fs.readFileSync('versions.json', 'utf8'));
+          if (!/^\d+\.\d+\.\d+$/.test(manifest.version)) throw new Error('manifest.version must be x.y.z');
+          if (versions[manifest.version] !== manifest.minAppVersion) throw new Error('versions.json is out of sync');
+          for (const file of ['README.md', 'LICENSE', 'main.js', 'manifest.json']) {
+            if (!fs.existsSync(file)) throw new Error(`Missing ${file}`);
+          }
+          NODE

@@ -1,0 +1,167 @@
+
+.fcmb-control, .fcmb-live-widget { display:inline-flex; align-items:center; vertical-align:middle; max-width:100%; }
+.fcmb-control { gap:.25rem; }
+.fcmb-loading { opacity:.55; padding:0 .25rem; min-width:1.2em; min-height:1em; }
+.fcmb-error { color:var(--text-error); font-size:var(--font-ui-small); border-bottom:1px dotted var(--text-error); }
+.cm-editor .fcmb-live-widget { margin:0 .12em; }
+.fcmb-control .meta-bind-input, .fcmb-live-widget .meta-bind-input { max-width:100%; }
+
+
+/* FCMB v0.1.2 — Fileclass Multi custom chips */
+.fcmb-multi-control {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.32rem;
+  max-width: 100%;
+}
+
+.fcmb-multi-chips {
+  display: contents;
+}
+
+.fcmb-multi-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  max-width: min(32rem, 100%);
+  padding: 0.18rem 0.24rem 0.18rem 0.5rem;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  line-height: 1.35;
+}
+
+.fcmb-multi-chip-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fcmb-multi-remove,
+.fcmb-multi-add {
+  appearance: none;
+  border: 0;
+  box-shadow: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+.fcmb-multi-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0;
+  border-radius: var(--radius-s);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1.05em;
+  line-height: 1;
+}
+
+.fcmb-multi-remove:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-error);
+}
+
+.fcmb-multi-add {
+  min-width: 1.8rem;
+  min-height: 1.8rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  background: var(--interactive-normal);
+  color: var(--text-normal);
+}
+
+.fcmb-multi-add:hover {
+  background: var(--interactive-hover);
+}
+
+.fcmb-suggestion-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.fcmb-suggestion-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.fcmb-suggestion-status {
+  flex: 0 0 auto;
+  color: var(--text-accent);
+  font-size: var(--font-ui-smaller);
+}
+
+.fcmb-suggestion-row.is-selected {
+  opacity: 0.72;
+}
+
+.fcmb-suggestion-row.is-selected .fcmb-suggestion-label {
+  font-weight: 600;
+}
+
+
+/* v0.1.3: selected entries are informational, not actionable. */
+.fcmb-suggestion-row.is-selected {
+  cursor: not-allowed;
+}
+
+.fcmb-suggestion-row.is-selected .fcmb-suggestion-status {
+  white-space: nowrap;
+}
+
+
+/* FCMB v0.1.5 — native Obsidian prompt/suggestion styling.
+   Most visuals come from Obsidian's own:
+   .prompt-input-container / .prompt-input / .prompt-results /
+   .suggestion / .suggestion-item / .suggestion-aux classes. */
+
+.fcmb-native-prompt-modal {
+  width: var(--prompt-width);
+  max-width: var(--prompt-max-width);
+  padding: 0;
+  overflow: hidden;
+}
+
+.fcmb-native-prompt-modal .modal-content {
+  padding: 0;
+}
+
+.fcmb-native-prompt-content .prompt-input-container {
+  border-bottom: var(--border-width) solid var(--background-modifier-border);
+}
+
+.fcmb-native-prompt-content .prompt-input {
+  border: 0;
+  box-shadow: none;
+}
+
+.fcmb-native-prompt-content .prompt-results {
+  overflow: hidden;
+}
+
+.fcmb-native-prompt-content .suggestion {
+  max-height: min(420px, 55vh);
+  overflow-y: auto;
+}
+
+.fcmb-native-suggestion .fcmb-check-flair {
+  width: var(--icon-size);
+  min-width: var(--icon-size);
+  margin-left: var(--size-4-2);
+  color: var(--interactive-accent);
+}
+
+.fcmb-native-suggestion:not(.fcmb-is-checked) .fcmb-check-flair {
+  visibility: hidden;
+}
+
+.fcmb-native-suggestion {
+  user-select: none;
+}
