@@ -17,7 +17,12 @@
 }
 
 .fcmb-multi-chips {
-  display: contents;
+  display: inline-flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.32rem;
+  min-width: 0;
 }
 
 .fcmb-multi-chip {

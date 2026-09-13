@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.7
+
+- Replace `display: contents` with a regular flex layout for better compatibility with Obsidian's embedded browser.
+
 ## 0.1.6
 
 - Clarify installation and usage for the Fileclass and Meta Bind integrations.
