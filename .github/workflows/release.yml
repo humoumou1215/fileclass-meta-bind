@@ -1,0 +1,45 @@
+name: Release
+
+on:
+  push:
+    tags: ['*.*.*']
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate release metadata
+        run: |
+          node --check main.js
+          MANIFEST_VERSION=$(node -p "JSON.parse(require('node:fs').readFileSync('manifest.json', 'utf8')).version")
+          test "$GITHUB_REF_NAME" = "$MANIFEST_VERSION"
+          test -f styles.css
+      - name: Attest main.js
+        uses: actions/attest@v4
+        with:
+          subject-path: main.js
+      - name: Attest manifest.json
+        uses: actions/attest@v4
+        with:
+          subject-path: manifest.json
+      - name: Attest styles.css
+        uses: actions/attest@v4
+        with:
+          subject-path: styles.css
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" main.js manifest.json styles.css \
+            --verify-tag \
+            --title "Fileclass Meta Bind $GITHUB_REF_NAME" \
+            --notes-file CHANGELOG.md

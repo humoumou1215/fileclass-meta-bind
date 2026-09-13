@@ -1,4 +1,4 @@
-# Fileclass Meta Bind v0.1.5
+# Fileclass Meta Bind v0.1.6
 
 本版只重做 Multi 候选框的 UI，交互规则保持 v0.1.4：
 
@@ -7,6 +7,10 @@
 - 连续点击不会关闭
 - Esc 退出
 - 点击外部退出
+
+## Usage / 使用
+
+After installing Fileclass and Meta Bind, enable this plugin and open a note that uses Fileclass fields. Run **Fileclass Meta Bind: Refresh FCMB controls** from the command palette when definitions or frontmatter change. Compatible fields are rendered as Meta Bind controls in the editor.
 
 ## UI 改造
 
@@ -57,7 +61,7 @@ suggestion-highlight
 
 样式显示。
 
-## 安装
+## Installation / 安装
 
 覆盖：
 
@@ -71,7 +75,7 @@ suggestion-highlight
 Reload plugins 后确认版本：
 
 ```text
-0.1.5
+0.1.6
 ```
 
 ## Privacy and license
